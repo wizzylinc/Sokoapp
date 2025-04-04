@@ -23,11 +23,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.mike.sokomart.R
+import com.mike.sokomart.navigation.ROUT_ITEM
 import com.mike.sokomart.ui.theme.black
 
 @Composable
-fun StartScreen(){
+fun StartScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -59,13 +62,17 @@ fun StartScreen(){
             textAlign = TextAlign.Center
             )
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(ROUT_ITEM)
+            },
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(Color.Blue),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding()
-        ) {}
+        ) {
+            Text(text = "Get started")
+        }
 
 
     }
@@ -75,5 +82,5 @@ fun StartScreen(){
 @Preview(showBackground = true)
 @Composable
 fun StartScreenPreview() {
-    StartScreen()
+    StartScreen(rememberNavController())
 }
