@@ -10,6 +10,7 @@ import com.mike.sokomart.ui.screens.about.AboutScreen
 import com.mike.sokomart.ui.screens.home.HomeScreen
 import com.mike.sokomart.ui.screens.intent.IntentScreen
 import com.mike.sokomart.ui.screens.items.ItemScreen
+import com.mike.sokomart.ui.screens.more.MoreScreen
 import com.mike.sokomart.ui.screens.start.StartScreen
 
 @Composable
@@ -39,6 +40,10 @@ fun AppNavHost(
         }
         composable(ROUT_INTENT) {
             IntentScreen(navController)
+
+        }
+        composable(ROUT_MORE) {
+            MoreScreen(navController)
 
         }
     }
