@@ -9,7 +9,9 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -24,11 +26,15 @@ import com.mike.sokomart.R
 @Composable
 fun HomeScreen(navController: NavController){
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .paint(painter = painterResource(R.drawable.background), contentScale = ContentScale.FillBounds
+        )
+    ){
         Text(
             text = "SokoMart",
             fontSize = 20.sp,
-            color = Color.DarkGray,
+            color = Color.White,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center
         )
@@ -46,12 +52,14 @@ fun HomeScreen(navController: NavController){
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic,
+            color = Color.White
 
 
             )
         Text(
             text = "What do you think of a site that allows you to buy and sell products and services online?",
-            fontSize = 15.sp
+            fontSize = 15.sp,
+            color = Color.White
         )
         Button(onClick = {},
             shape = RoundedCornerShape(10.dp),

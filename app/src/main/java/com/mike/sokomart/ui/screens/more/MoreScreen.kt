@@ -125,58 +125,61 @@ fun MoreScreen(navController: NavController){
 
                 )
         Spacer(modifier = Modifier.height(20.dp))
-            //Row
-        Row (modifier = Modifier.padding(start = 20.dp).horizontalScroll(rememberScrollState())){
-
-            //Column
-            Column (horizontalAlignment = Alignment.CenterHorizontally){
-                Image(
-                        painter = painterResource(R.drawable.img_5),
-                        contentDescription = "",
-                        modifier = Modifier.size(150.dp)
-                            .clip(shape = RoundedCornerShape(10.dp)),
-                        contentScale = ContentScale.FillBounds
-                    )
-                Text(
-                    text = "Bentley",
-                    fontSize = 15.sp
-                )
-                Text(
-                    text = "Ksh.20000000",
-                    fontSize = 15.sp
-                )
-                Button(onClick = {
-                    val simToolKitLaunchIntent =
-                        mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
-                    simToolKitLaunchIntent?.let { mContext.startActivity(it) }
-                },
-                    shape = RoundedCornerShape(10.dp),
-                    colors = ButtonDefaults.buttonColors(Color.Blue)
-                )
-                {
-                    Text(text = "Pay")
-
-                }
-
-                }
-            //End of column
-            Spacer(modifier = Modifier.width(10.dp))
-
-
-
-            }
-
-
-
-
+        //row start
+        Row (
+            modifier = Modifier.padding(start = 20.dp).horizontalScroll(rememberScrollState())
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.img),
+                contentDescription = "home",
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Image(
+                painter = painterResource(id = R.drawable.img_6),
+                contentDescription = "home",
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Image(
+                painter = painterResource(id = R.drawable.img_5),
+                contentDescription = "home",
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Image(
+                painter = painterResource(id = R.drawable.img_6),
+                contentDescription = "home",
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
+        //row end
+        Button(
+            onClick = {
+                val simToolKitLaunchIntent =
+                    mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+            },
+            shape = RoundedCornerShape(10.dp),
+            colors = ButtonDefaults.buttonColors(Purple80),
+            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
+        ) {
+            Text(text = "Purchase Here")
+        }
+        Spacer(modifier = Modifier.width(10.dp))
+        Text(
+            text = "Reviews",
+            fontWeight = FontWeight.Bold,
+            fontSize = 30.sp,
+            modifier = Modifier.padding(start = 10.dp, top = 10.dp)
+        )
+        //Text(
+        //    text = "This mid-size, two-row luxury crossover is unnaturally light on its feet, with chassis tuning derived from over two decades of performance-SUV supremacy.\n" +
+        //          "US86,695.00 · 4.8 · Review by Drew Dorian\n" +
+        //        "\u200ETested: 2024 Porsche... · \u200E2025 Porsche Cayenne Hybrid · \u200EView Photos · \u200E2024",
+        //fontSize = 18.dp,
+        // )
 
     }
 
-
-
-
 }
-
 @Preview(showBackground = true)
 @Composable
 fun MoreScreenPreview(){
